@@ -1,0 +1,39 @@
+<div class="featured-product product">
+    <div class="container-fluid">
+        <div class="section-header">
+            <h1>Featured Product</h1>
+        </div>
+        <div class="row align-items-center product-slider product-slider-4">
+
+            <div class="col-lg-3" *ngFor="let product of products; let i = index">
+                <div class="product-item">
+                    <div class="product-title">
+                        <a routerLink="/product-detail/{{product.pSlug}}" (click)="recentClick(product.pSlug)">{{product.pName}}</a>
+                        <div class="ratting">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                        </div>
+                    </div>
+                    <div class="product-image">
+                        <a routerLink="/product-detail/{{product.pSlug}}">
+                            <img src="{{imgPath}}{{product.pImageDefault}}" alt="Product Image">
+                        </a>
+                        <div class="product-action">
+                            <a (click)="add2cart(1,product)"><i class="fa fa-cart-plus"></i></a>
+                            <a href="#"><i class="fa fa-heart"></i></a>
+                            <a routerLink="/product-detail/{{product.pSlug}}" (click)="recentClick(product.pSlug)"><i class="fa fa-search"></i></a>
+                        </div>
+                    </div>
+                    <div class="product-price">
+                        <h3><span>$</span>{{product.pPrice}}</h3>
+                        <a class="btn" (click)="[add2cart(1,product), buynow()]"><i class="fa fa-shopping-cart"></i>Buy Now</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
